@@ -12,12 +12,15 @@ public class MoodAnalyser {
         this.message=message;
     }
     public String analyseMood() {
-        if (message.contains("Sad"))
+        try{if (message.contains("Sad"))
             return "SAD";
         else if (message.contains("Any"))
             return "HAPPY";
         else
             return "HAPPY";
+    }
+        catch (Exception e){
+        return "HAPPY";}
     }
 }
 

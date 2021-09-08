@@ -10,17 +10,24 @@ class MoodAnalyserTest {
         String mood = moodAnalyser.analyseMood();
         Assertions.assertEquals("SAD", mood);
     }
-
     @Test
     void givenMood_whenMessageIsHappy_returnsHappy() {
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in  Happy mood ");
         String mood = moodAnalyser.analyseMood();
         Assertions.assertEquals("HAPPY", mood);
     }
-
     @Test
     void givenMood_whenMessageIsAny_returnsHappy() {
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Any mood ");
+        String mood = moodAnalyser.analyseMood();
+        Assertions.assertEquals("HAPPY", mood);
+    }
+    /**
+     * TEST WHEN MOOD IS GIVEN AS NULL
+     */
+    @Test
+    void givenMood_whenNull_returnsHAPPY() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
         String mood = moodAnalyser.analyseMood();
         Assertions.assertEquals("HAPPY", mood);
     }
