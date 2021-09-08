@@ -11,16 +11,18 @@ public class MoodAnalyser {
     public MoodAnalyser(String message){
         this.message=message;
     }
-    public String analyseMood() {
-        try{if (message.contains("Sad"))
-            return "SAD";
-        else if (message.contains("Any"))
-            return "HAPPY";
-        else
-            return "HAPPY";
-    }
-        catch (Exception e){
-        return "HAPPY";}
+    public String analyseMood() throws MoodAnalysisException {
+        try {
+            if(message.length()==0)
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY_MOOD,"No message entered");
+            if (message.contains("Sad"))
+                return "SAD";
+            else
+                return "HAPPY";
+        } catch (NullPointerException e) {
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL_MOOD,"Please enter a valid message");
+        }
     }
 }
+
 
