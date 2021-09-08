@@ -1,5 +1,17 @@
 public class MoodAnalyser {
-    public String analyseMood(String message) {
+    private String message;
+    /**
+     * Default Constructor (No parameter)
+     */
+    public MoodAnalyser(){}
+    /**
+     * Parametrized Constructor
+     * @param message This is the message to analyse mood.
+     */
+    public MoodAnalyser(String message){
+        this.message=message;
+    }
+    public String analyseMood() {
         if (message.contains("Sad"))
             return "SAD";
         else if (message.contains("Any"))
